@@ -2,37 +2,37 @@ import Node from "./Node.js";
 
 class LinkedList {
   constructor(head = null, tail = null) {
-    this.head = head;
-    this.tail = tail;
+    this._head = head;
+    this._tail = tail;
   }
 
   append(value) {
     const newNode = new Node(value);
 
-    if (this.head === null) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (this._head === null) {
+      this._head = newNode;
+      this._tail = newNode;
     } else {
-      this.tail.nextNode = newNode;
-      this.tail = newNode;
+      this._tail.nextNode = newNode;
+      this._tail = newNode;
     }
   }
 
   prepend(value) {
     const newNode = new Node(value);
 
-    if (this.head === null) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (this._head === null) {
+      this._head = newNode;
+      this._tail = newNode;
     } else {
-      newNode.nextNode = this.head;
-      this.head = newNode;
+      newNode.nextNode = this._head;
+      this._head = newNode;
     }
   }
 
   size() {
     let count = 0;
-    let temp = this.head;
+    let temp = this._head;
 
     while (temp !== null) {
       ++count;
@@ -40,6 +40,14 @@ class LinkedList {
     }
 
     return count;
+  }
+
+  head() {
+    if (this._he_headd === null) {
+      return;
+    }
+
+    return this._head.value;
   }
 }
 
@@ -52,6 +60,4 @@ linkedList.append(13);
 linkedList.prepend(40);
 linkedList.prepend(50);
 console.log("The total elements in the list is: ", linkedList.size());
-
-console.log("The head is: ", linkedList.head);
-console.log("The tail is: ", linkedList.tail);
+console.log("The head value is: ", linkedList.head());
