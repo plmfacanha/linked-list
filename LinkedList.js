@@ -133,21 +133,14 @@ class LinkedList {
   }
 }
 
-const linkedList = new LinkedList();
+// example uses class syntax - adjust as necessary
+const list = new LinkedList();
 
-linkedList.append(10);
-linkedList.append(11);
-linkedList.append(12);
-linkedList.prepend(40);
-linkedList.prepend(50);
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 
-// console.log("The total elements in the list is: ", linkedList.size());
-console.log("The node value popped is: ", linkedList.pop());
-// console.log("The head value is: ", linkedList.head());
-// console.log("The tail value is: ", linkedList.tail());
-// console.log("The list contains? ", linkedList.contains(11));
-// console.log("The list contains? ", linkedList.contains(50));
-// console.log("The list contains? ", linkedList.contains(40));
-// console.log("The index for the value is: ", linkedList.findIndex(12));
-// console.log("The index for the value is: ", linkedList.findIndex(100));
-console.log("The list is: ", linkedList.toString());
+console.log(list.toString());
