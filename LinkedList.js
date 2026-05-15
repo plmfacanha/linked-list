@@ -147,7 +147,7 @@ class LinkedList {
       } else if (index === maxLength) {
         this.append(val);
       } else {
-        // TODO: in case the index is greater than 1 and less than maxLength, insert the node at this index
+        // TODO: in case the index is greater than 0 and less than maxLength, insert the node at this index
         // while (temp !== null) {
         //   temp = temp.nextNode;
         // }
