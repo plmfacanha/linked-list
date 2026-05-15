@@ -59,13 +59,13 @@ class LinkedList {
   }
 
   at(index) {
-    let count = 0;
+    let currentIndex = 0;
     let temp = this._head;
 
     while (temp !== null) {
-      if (count === index) return temp.value;
+      if (currentIndex === index) return temp.value;
 
-      ++count;
+      ++currentIndex;
       temp = temp.nextNode;
     }
 
@@ -132,13 +132,27 @@ class LinkedList {
     return str;
   }
 
+  getNodeAt(index) {
+    let currentIndex = 0;
+    let temp = this._head;
+
+    while (temp !== null) {
+      if (index === currentIndex) {
+        return temp;
+      }
+      temp = temp.nextNode;
+    }
+
+    return;
+  }
+
   insertAt(index, ...values) {
     if (index < 0 || index >= this.size()) {
       throw new RangeError("Out of bounds");
     }
 
     const maxLength = this.size() - 1;
-    const temp = this._head;
+    let temp = this._head.nextNode;
     let currentIndex = 1;
 
     values.toReversed().map((value) => {
@@ -147,10 +161,17 @@ class LinkedList {
       } else if (index === maxLength) {
         this.append(value);
       } else {
-        // TODO: in case the index is greater than 0 and less than maxLength, insert the node at this index
         const newNode = new Node(value);
 
         while (temp !== null) {
+          if (index === currentIndex) {
+            const prevNode = this.getNodeAt(index - 1);
+            const currentNode = this.getNodeAt(index);
+
+            newNode.nextNode = currentNode;
+            prevNode.nextNode = newNode;
+          }
+
           temp = temp.nextNode;
         }
       }
