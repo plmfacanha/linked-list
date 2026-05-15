@@ -140,6 +140,7 @@ class LinkedList {
       if (index === currentIndex) {
         return temp;
       }
+      ++currentIndex;
       temp = temp.nextNode;
     }
 
@@ -151,30 +152,16 @@ class LinkedList {
       throw new RangeError("Out of bounds");
     }
 
-    const maxLength = this.size() - 1;
-    let temp = this._head.nextNode;
-    let currentIndex = 1;
-
-    values.toReversed().map((value) => {
+    values.toReversed().forEach((value) => {
       if (index === 0) {
         this.prepend(value);
-      } else if (index === maxLength) {
-        this.append(value);
-      } else {
-        const newNode = new Node(value);
-
-        while (temp !== null) {
-          if (index === currentIndex) {
-            const prevNode = this.getNodeAt(index - 1);
-            const currentNode = this.getNodeAt(index);
-
-            newNode.nextNode = currentNode;
-            prevNode.nextNode = newNode;
-          }
-
-          temp = temp.nextNode;
-        }
+        return;
       }
+
+      const newNode = new Node(value);
+      const prevNode = this.getNodeAt(index - 1);
+      newNode.nextNode = prevNode.nextNode;
+      prevNode.nextNode = newNode;
     });
   }
 }
@@ -185,5 +172,6 @@ list.append(1);
 list.append(2);
 list.append(3);
 
-list.insertAt(1, 10, 11);
+list.insertAt(2, 10, 11, 13, 14);
+console.log(list.size());
 console.log(list.toString());
