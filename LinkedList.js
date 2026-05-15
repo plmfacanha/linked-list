@@ -141,16 +141,18 @@ class LinkedList {
     const temp = this._head;
     let currentIndex = 1;
 
-    values.toReversed().map((val) => {
+    values.toReversed().map((value) => {
       if (index === 0) {
-        this.prepend(val);
+        this.prepend(value);
       } else if (index === maxLength) {
-        this.append(val);
+        this.append(value);
       } else {
         // TODO: in case the index is greater than 0 and less than maxLength, insert the node at this index
-        // while (temp !== null) {
-        //   temp = temp.nextNode;
-        // }
+        const newNode = new Node(value);
+
+        while (temp !== null) {
+          temp = temp.nextNode;
+        }
       }
     });
   }
