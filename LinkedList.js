@@ -137,21 +137,30 @@ class LinkedList {
       throw new RangeError("Out of bounds");
     }
 
-    let currentIndex = 0;
-    let temp = this._head;
+    const maxLength = this.size() - 1;
+    const temp = this._head;
+    let currentIndex = 1;
 
-    while (temp !== null) {}
+    values.toReversed().map((val) => {
+      if (index === 0) {
+        this.prepend(val);
+      } else if (index === maxLength) {
+        this.append(val);
+      } else {
+        // TODO: in case the index is greater than 1 and less than maxLength, insert the node at this index
+        // while (temp !== null) {
+        //   temp = temp.nextNode;
+        // }
+      }
+    });
   }
 }
 
 const list = new LinkedList();
 
-list.append(10);
-list.append(20);
-list.append(30);
-list.append(40);
-list.append(50);
+list.append(1);
+list.append(2);
+list.append(3);
 
+list.insertAt(1, 10, 11);
 console.log(list.toString());
-
-console.log(list.insertAt(5, 10, 12));
