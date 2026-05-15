@@ -132,21 +132,26 @@ class LinkedList {
     return str;
   }
 
-  insertAt(...values) {
-    return values;
+  insertAt(index, ...values) {
+    if (index < 0 || index >= this.size()) {
+      throw new RangeError("Out of bounds");
+    }
+
+    let currentIndex = 0;
+    let temp = this._head;
+
+    while (temp !== null) {}
   }
 }
 
-// example uses class syntax - adjust as necessary
 const list = new LinkedList();
 
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-list.append("hamster");
-list.append("snake");
-list.append("turtle");
+list.append(10);
+list.append(20);
+list.append(30);
+list.append(40);
+list.append(50);
 
 console.log(list.toString());
 
-// console.log(list.insertAt(10, 12, 13));
+console.log(list.insertAt(5, 10, 12));
