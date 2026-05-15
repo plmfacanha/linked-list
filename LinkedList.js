@@ -170,6 +170,11 @@ class LinkedList {
       throw new RangeError("Out of bounds");
     }
 
+    if (index === 0) {
+      this.pop();
+      return;
+    }
+
     const prevNode = this.getNodeAt(index - 1);
     const popNode = this.getNodeAt(index);
 
@@ -187,9 +192,6 @@ list.append(2);
 list.append(3);
 
 list.insertAt(2, 10, 11, 13, 14);
-console.log(list.size());
-// console.log(list.toString());
-console.log(list.removeAt(1));
 console.log(list.toString());
-console.log(list.removeAt(3));
+console.log(list.removeAt(0));
 console.log(list.toString());
