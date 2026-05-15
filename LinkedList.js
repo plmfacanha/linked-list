@@ -131,6 +131,10 @@ class LinkedList {
 
     return str;
   }
+
+  insertAt(...values) {
+    return values;
+  }
 }
 
 // example uses class syntax - adjust as necessary
@@ -144,3 +148,5 @@ list.append("snake");
 list.append("turtle");
 
 console.log(list.toString());
+
+// console.log(list.insertAt(10, 12, 13));
