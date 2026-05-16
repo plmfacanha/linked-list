@@ -176,12 +176,12 @@ class LinkedList {
     }
 
     const prevNode = this.getNodeAt(index - 1);
-    const popNode = this.getNodeAt(index);
+    const currentNode = this.getNodeAt(index);
 
-    prevNode.nextNode = popNode.nextNode;
-    popNode.nextNode = null;
+    prevNode.nextNode = currentNode.nextNode;
+    currentNode.nextNode = null;
 
-    return popNode;
+    return currentNode;
   }
 }
 
